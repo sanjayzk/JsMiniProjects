@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>Color Flipper</title>
+    <style>
+        body {
+            height:100vh;
+            margin:0;
+            font-family: 'Arial', sans-serif;
+            background-color: #1b8;
+            color: #61dafb;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:center;  
+        }
+        #buttons{
+            padding-top: 30px;
+        }
+        #headings{
+            padding: 5px;
+            border: 3px solid black;
+            background-color: black;
+            color:white;
+        }
+        #randomButton{
+            padding: 5px;
+            border: 3px solid black;
+            color: black;
+            font-size: 2rem;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="bigtext">
+        <h1 id="headings">Background Color Generator</h1>
+        
+    </div>
+    <div>
+        <button id="randomButton" onclick="changeColor()">FLIP COLOR</button>
+    </div>
+    <script>
+        const colorname= document.getElementById("headings");
+        const alps="abcdef";
+        const nums="0123456789";
+        const allchar= alps+nums;
+        function changeColor(){
+            let word='';
+            for(let i=0;i<3;i++){
+                let randomIndex= Math.floor(Math.random()*allchar.length);
+                word+=allchar[randomIndex];
+            }
+            colorname.textContent="Background Color : #"+word;
+            document.body.style.backgroundColor="#"+word;
+            console.log(word); 
+        }
+    </script>
+</body>
+</html>
