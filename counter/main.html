@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>counter</title>
+        <style>
+            body{
+                background-color: lightsteelblue;
+                font-family: sans-serif, Arial;
+                margin: auto;
+                min-height: 100vh;
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            
+        
+            #options{
+                margin-top: 50px;
+            }
+            button{
+                border-radius: 8px;
+                border: 2px solid black;
+                font-size: 24px;
+                padding: 8px;
+                margin: 6px;
+            }
+            #defaultzero{
+                font-size: 50px;
+            }
+            button:hover{
+                background-color: lightblue;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <h1>COUNTER</h1>
+        <h1 id="defaultzero">0</h1>
+        <div id="options">
+            <button class="decrease btn" >DECREASE</button>
+            <button class="reset btn">RESET</button>
+            <button class="increase btn">INCREASE</button>
+        </div>
+        <script>
+            let count = 0;
+            const defaultzero = document.getElementById("defaultzero");
+            const btns = document.querySelectorAll(".btn");
+            console.log(btns);
+            btns.forEach(function(btn){
+                btn.addEventListener('click',function(e){
+                   const styles = e.currentTarget.classList;
+                   if(styles.contains("decrease")){
+                    count--;
+                   }
+                   else if(styles.contains("increase")){
+                    count++;
+                   }
+                   else{
+                    count=0;
+                   }
+                   defaultzero.textContent = count;
+                   if(count==0){
+                    defaultzero.style.color='black';
+                   }
+                   else if(count>0){
+                    defaultzero.style.color='green';
+                   }
+                   else{
+                    defaultzero.style.color='red';
+                   }
+                });
+            });
+        </script>
+    </body>
+</html>
