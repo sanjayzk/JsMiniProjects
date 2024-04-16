@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <title>Review carousel</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <style>
+            :root {
+  /* dark shades of primary color*/
+  --clr-primary-1: hsl(205, 86%, 17%);
+  --clr-primary-2: hsl(205, 77%, 27%);
+  --clr-primary-3: hsl(205, 72%, 37%);
+  --clr-primary-4: hsl(205, 63%, 48%);
+  /* primary/main color */
+  --clr-primary-5: hsl(205, 78%, 60%);
+  /* lighter shades of primary color */
+  --clr-primary-6: hsl(205, 89%, 70%);
+  --clr-primary-7: hsl(205, 90%, 76%);
+  --clr-primary-8: hsl(205, 86%, 81%);
+  --clr-primary-9: hsl(205, 90%, 88%);
+  --clr-primary-10: hsl(205, 100%, 96%);
+  /* darkest grey - used for headings */
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-2: hsl(211, 39%, 23%);
+  --clr-grey-3: hsl(209, 34%, 30%);
+  --clr-grey-4: hsl(209, 28%, 39%);
+  /* grey used for paragraphs */
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-6: hsl(209, 23%, 60%);
+  --clr-grey-7: hsl(211, 27%, 70%);
+  --clr-grey-8: hsl(210, 31%, 80%);
+  --clr-grey-9: hsl(212, 33%, 89%);
+  --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-white: #fff;
+  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-light: hsl(360, 71%, 66%);
+  --clr-green-dark: hsl(125, 67%, 44%);
+  --clr-green-light: hsl(125, 71%, 66%);
+  --clr-black: #222;
+  --ff-primary: "Roboto", sans-serif;
+  --ff-secondary: "Open Sans", sans-serif;
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+            body{
+                text-align: center;
+                margin:0;
+                background-color:#E6E6FA;
+            }
+            .container{
+                
+                display: flex;
+                flex-direction:column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .review-container{
+                background-color:white;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: var(--transition);
+                border-radius: var(--radius);
+                box-shadow: var(--light-shadow);
+                width: 60%;
+                padding :1%;
+                
+            }
+            
+            #jeromes{
+                width: 100%;
+                display: block;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 50%;
+                position: relative;
+            }
+            
+            .title{
+                font-family: monospace ;
+                margin-bottom: 2rem;
+            }
+            .buttons{
+                display:flex;
+                flex-direction: row;
+                gap: 5px;
+                border:0;
+                border-radius:2px ;
+            }
+            #suprise{
+                border-radius:3px;
+                margin: 1em auto;
+            }
+            #left,#right{
+                font-weight: bold;
+                border:0px;
+                font-size:32px;
+                color:blueviolet;
+                font-style: bold;
+                background-color: white;
+            }
+            .underline {
+                height: 0.25rem;
+                width: 5rem;
+                background:blueviolet;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            h1{
+                font-size: 32px;
+                
+                margin: 0.5rem 0;
+            }
+            #role{
+                font-size: 18px;
+                font-weight: bold;
+                color:blueviolet;
+            }
+            .img-container {
+                position: relative;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                margin: 0 auto;
+                margin-bottom: 1.5rem;
+            }
+            
+            .img-container::after{
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                content: "\f10e";
+                position:absolute;
+                height: 2.5em;
+                width:2.5rem;
+                display:grid;
+                top: 0;
+                left:0;
+                place-items: center;
+                transform: translateY(25%);
+                background: blueviolet;
+                color: var(--clr-white);
+                border-radius: 50%;
+            }
+            #suprise{
+                border: 2px solid blueviolet;
+            }
+
+            .Description{
+                font-family: poppins ;
+            }
+            .img-container::before {
+                content: "";
+                width: 100%;
+                height: 100%;
+                background: blueviolet;
+                position: absolute;
+                top: -0.25rem;
+                right: -0.5rem;
+                border-radius: 50%;
+                }
+                #name{
+                    font-family: 'poppins', sans-serif;
+                    font-size: 19px;
+                }
+            
+        </style>
+    </head>
+    <body>
+        <main>
+        <section class="container">
+        <div class="title">
+        <h1>Our Reviews</h1>
+        <div class="underline"></div>
+        </div>
+            <div class="review-container">
+                <div class="img-container">
+                <img id="jeromes" src="jeromeimg.jpg">
+                </div>
+                <p id="name">Jerome D</p>
+                <p id="role">WEB DEVELOPER</p>
+                <p class="Description">The service offered by them is very good and cheap compared to others.They also provide after sale services and online for support 24/7</p>
+                <div class="buttons">
+                <button id="left"><</button>
+                <button id="right">></button>
+                </div>
+                <button id="suprise">SUPRISE ME</button>
+            </div>
+       
+        </section>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>      
+        <script>
+            let details= [
+            {
+                name: "Jeromes D",
+                jeromes: "jeromeimg.jpg",
+                role: "PROFESSIONAL HACKER",
+                Description: "The service offered by them is very good and cheap compared to others.They also provide after sale services and online for support 24/7"
+            },
+            {
+                name: "Tambi malai G",
+                jeromes : "einstein.jpg",
+                role: "BLOCKCHAIN DEVELOPER",
+                Description: "I have consulted them regarding Blockchain development for my project , they have significantly reduced the size of the problem."
+            },
+            {
+                name: "sanjay kumar K",
+                jeromes : "Tesla.jpeg",
+                role: "AI/ML ENGINEER",
+                Description: "I saved lot of money and time by choosing them."
+            },
+            {
+                name: "Thanga Durai S",
+                jeromes: "oppenheimer.webp",
+                role: "C# DEVELOPER",
+                Description: "They have the experience and required technology to solve the problem in simply ways"
+            },
+            {
+                name: "Vetrivel pandyian K",
+                jeromes : "einstein.jpg",
+                role: "JAVA DEVELOPER",
+                Description: "Very helpful and professional service provider."
+            }
+            ];
+            const leftbutton = document.getElementById("left");
+            const rightbutton = document.getElementById("right");
+            const suprise = document.querySelector("#suprise");
+            const Jeromes = document.querySelector("#jeromes");
+            leftbutton.addEventListener('click',leftclick);
+            rightbutton.addEventListener('click',rightclick);
+            suprise.addEventListener('click',supriseClick);
+            const name = document.getElementById("name");
+            const description= document.querySelector(".Description");
+            let currentIndex = 0;
+            function leftclick() {
+                currentIndex--;
+                if(currentIndex==-1){
+                    currentIndex= details.length-1;
+                }
+                name.innerText = details[currentIndex].name;
+                Jeromes.src = details[currentIndex].jeromes;
+                role.innerText = details[currentIndex].role;
+                description.innerText = details[currentIndex].Description;
+            }
+            function rightclick() {
+                currentIndex++;
+                if(currentIndex== details.length){
+                    currentIndex= 0;
+                }
+                name.innerText = details[currentIndex].name;
+                Jeromes.src = details[currentIndex].jeromes;
+                role.innerText = details[currentIndex].role;
+                description.innerText = details[currentIndex].Description;
+            }
+            function supriseClick(){
+                let randomno = Math.floor(Math.random()*details.length);
+                name.innerText = details[randomno].name;
+                Jeromes.src = details[randomno].jeromes;
+                role.innerText = details[randomno].role;
+                description.innerText = details[randomno].Description;
+            }
+
+        </script>
+    </body>
+</html>
